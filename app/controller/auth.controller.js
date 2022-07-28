@@ -2,7 +2,7 @@ const User = require("../models/sql/user.model");
 const { matchedData } = require("express-validator");
 const { handleErrorResponse, handleHttpError } = require("../utils/handleError.utils");
 const { tokenSign } = require("../utils/handleToken.utils");
-const { compare } = require("../utils/handleJwt.utils");
+const { compare } = require("../utils/handleEncrypt.utils");
 
 const login = async(req, res) => {
     try {
