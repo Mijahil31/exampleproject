@@ -1,5 +1,5 @@
 const User = require("../models/sql/user.model");
-const { encrypt } = require("../utils/handleJwt");
+const { encrypt } = require("../utils/handleJwt.utils");
 const { matchedData } = require("express-validator");
 const { handleErrorResponse, handleHttpError } = require("../utils/handleError.utils");
 
