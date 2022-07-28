@@ -1,6 +1,6 @@
 const { mysql_db } = require("../../config/mysql.config");
 const { DataTypes } = require("sequelize");
-const Category = require('category.model');
+const Category = require('./category.model');
 
 const Products = mysql_db.define(
     "products", {
@@ -20,4 +20,4 @@ Products.hasOne(Category, {
     foreignKey: 'id_category'
 });
 
-module.exports = User;
+module.exports = Products;

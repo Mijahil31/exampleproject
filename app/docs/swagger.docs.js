@@ -1,6 +1,7 @@
 const swaggerJsdoc = require("swagger-jsdoc");
 const { authDocs, authLoginResponse } = require("./auth.docs");
 const { userCreate, userResponse, user } = require("./user.docs");
+const { productBody, productResponse } = require("./product.docs");
 
 const swaggerDefinition = {
     openapi: "3.0.0",
@@ -31,6 +32,8 @@ const swaggerDefinition = {
         userCreate: userCreate,
         userResponse: userResponse,
         user: user,
+        productBody: productBody,
+        productResponse: productResponse
     },
 };
 

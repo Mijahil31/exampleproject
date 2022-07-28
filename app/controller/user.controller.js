@@ -6,7 +6,7 @@ const { handleErrorResponse, handleHttpError } = require("../utils/handleError.u
 const register = async(req, res) => {
     try {
         const body = matchedData(req);
-        const checkIsExist = await User.findOne({ email: body.email });
+        const checkIsExist = await User.findOne({ where: { email: body.email } });
         if (checkIsExist) {
             handleErrorResponse(res, "User exists", 401);
             return;
@@ -24,7 +24,7 @@ const register = async(req, res) => {
 
 const getAll = async(req, res) => {
     try {
-        data = await User.findAll();
+        let data = await User.findAll();
         res.json({ message: "List of all users", data: data });
     } catch (e) {
         handleHttpError(res, e);
@@ -34,7 +34,7 @@ const getAll = async(req, res) => {
 const get = async(req, res) => {
     try {
         const id = req.params.id;
-        data = await User.findByPk(id);
+        let data = await User.findByPk(id);
         if (!data) {
             handleErrorResponse(res, message = "User not exist", code = 404);
             return;
@@ -48,16 +48,12 @@ const get = async(req, res) => {
 const deleteUser = async(req, res) => {
     try {
         const id = req.params.id;
-        checkIsExist = await User.findByPk(id);
+        let checkIsExist = await User.findByPk(id);
         if (!checkIsExist) {
             handleErrorResponse(res, message = "User not exist", code = 404);
             return;
         }
-        data = await User.destroy({
-            where: {
-                id
-            }
-        });
+        let data = await User.destroy({ where: { id } });
         res.json({ message: "Delete user", data: data });
     } catch (e) {
         handleHttpError(res, e);

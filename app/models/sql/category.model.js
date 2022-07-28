@@ -1,6 +1,6 @@
 const { mysql_db } = require("../../config/mysql.config");
 const { DataTypes } = require("sequelize");
-const Product = require("product.model");
+const Product = require("./product.model");
 
 const Category = mysql_db.define(
     "category", {
@@ -12,6 +12,5 @@ const Category = mysql_db.define(
         timestamps: true,
     }
 );
-Category.belongsTo(Product);
 
 module.exports = Category;
