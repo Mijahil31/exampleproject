@@ -1,9 +1,7 @@
 const { check } = require("express-validator");
 const { validateResult } = require("../utils/handleValidator.utils");
 
-const validateRegister = [
-    check("name").exists().notEmpty(),
-    check("age").exists().notEmpty().isNumeric(),
+const validateAuth = [
     check("email").exists().notEmpty().isEmail(),
     check("password").exists().notEmpty().isLength({ min: 8, max: 15 }),
     (req, res, next) => {
@@ -11,4 +9,4 @@ const validateRegister = [
     },
 ];
 
-module.exports = { validateRegister };
+module.exports = { validateAuth };
