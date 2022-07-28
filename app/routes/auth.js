@@ -14,14 +14,12 @@ const { validateAuth } = require("../validator/auth.validator");
  *      summary: "Login user"
  *      description: Enter the application
  *      responses:
- *        '200':
+ *        '202':
  *          description: 'Retorna el objeto insertado en la coleccion.'
  *          content:
  *              application/json:
  *                  schema:
  *                      $ref: "#/definitions/authLoginResponse"
- *        '422':
- *          description: Error de validacion.
  *      requestBody:
  *          content:
  *              application/json:

@@ -1,5 +1,6 @@
 const swaggerJsdoc = require("swagger-jsdoc");
 const { authDocs, authLoginResponse } = require("./auth.docs");
+const { userCreate, userResponse, user } = require("./user.docs");
 
 const swaggerDefinition = {
     openapi: "3.0.0",
@@ -26,13 +27,16 @@ const swaggerDefinition = {
     },
     definitions: {
         auth: authDocs,
-        authLoginResponse: authLoginResponse
+        authLoginResponse: authLoginResponse,
+        userCreate: userCreate,
+        userResponse: userResponse,
+        user: user,
     },
 };
 
 const options = {
     swaggerDefinition,
-    apis: ["app/routes/auth.js"],
+    apis: ["app/routes/*.js"],
 };
 
 const openapiSpecification = swaggerJsdoc(options);

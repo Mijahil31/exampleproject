@@ -1,4 +1,4 @@
-const { UserResponse } = require('./user.docs');
+const { userResponse } = require('./user.docs');
 
 const authDocs = {
     type: "object",
@@ -18,7 +18,7 @@ const authResponse = {
         token: {
             type: "string",
         },
-        user: UserResponse
+        user: userResponse
     }
 }
 
